@@ -187,7 +187,7 @@ document.getElementById('camera-icon').addEventListener('click', function() {
           display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            background-image: url('carbon.jpg'); /* Use your image for background */
+           background-image: url('./carbon.jpg'); /* Correct relative path */
             background-size: cover;
             background-position: center;
             padding: 20px;
