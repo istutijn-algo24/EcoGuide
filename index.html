@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoGuide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="background-section">
+    <header>
+        <div class="header-content">
+
+        <span class = 'logo'>
+            <img src="./images/logo.png" alt="">
+        </span>
+        <nav class="nav-options">
+            <a href="#">Scan your Waste</a>
+            <a href="#">CarbonCalc</a>
+            <a href="#">Green Tips</a>
+        </nav>
+  
+    </div>
+    </header>
+</div>
+
+<div class="quote-container">
+    <h2 class="quote-heading">Quotes</h2>
+    <div class="quote-box">
+        <p id="quote" class="quote"></p>
+    </div>
+</div>
+
+<script>
+    // Typing effect function
+    const quoteText = "Waste less, energize more! Each tiny action fuels a greener planet, creating waves of change for a brighter tomorrow!";
+    let index = 0;
+    const quoteElement = document.getElementById('quote');
+
+    function typeQuote() {
+        if (index < quoteText.length) {
+            quoteElement.innerHTML += quoteText.charAt(index);
+            index++;
+            setTimeout(typeQuote, 50); // Adjust typing speed here
+        }
+    }
+
+    // Start typing effect on page load
+    window.onload = typeQuote;
+</script>
+
+<!-- page2  -->
+<div class="container">
+    <div class="camera-section">
+        <br><br>
+        <img src="./images/camera.png" alt="Camera" id="camera-icon">
+        <p></p>
+        <input type="file" id="file-upload" accept="image/*">
+        <label for="file-upload" class="upload-label">Upload File</label>
+    </div>
+    <div class="info-section">
+        <h2>Waste Disposal Information</h2>
+        <p>Waste name: <span id="waste-name">Plastic Bottle</span></p>
+        <p>Type: <span id="waste-type">Non-biodegradable</span></p>
+        <p>Toxicity: <span id="toxicity">Low</span></p>
+        <p>How to dispose of the waste: <span id="disposal-method">Recycle at a designated facility.</span></p>
+        <p>Tip: <br><br> <span class="highlight" id="tip">Always rinse before recycling.</span></p> <!-- Highlighted tip -->
+    </div>
+    
+</div>
+<script src="script.js"></script>
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
