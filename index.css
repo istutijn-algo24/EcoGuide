@@ -10,7 +10,7 @@ html,body{
   height: 100vh; /* Full viewport height */
   background-image: url('./bg.png');
   background-size: cover; /* Cover the entire area */
-  background-position: center -80%; /* Center the image */
+  background-position: center -60%; /* Center the image */
   background-repeat: no-repeat; /* Prevent tiling */
 }
 
