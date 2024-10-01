@@ -73,77 +73,9 @@
     
 </div>
 <script src="script.js"></script>
-    .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            background-image: url('carbon.jpg'); /* Use your image for background */
-            background-size: cover;
-            background-position: center;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            width: 90%; /* Slightly reduced width to avoid overlap */
-            max-width: 1400px; /* Max width for the container */
-        }
 
-        .questions {
-            flex: 1; /* Takes up available space without shrinking */
-            margin-right: 40px; /* Add space between form and result sections */
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
-        }
-
-        .questions select, 
-        .questions input[type="number"], 
-        .questions button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-        }
-
-        .questions button {
-            background-color: #444A36;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-        }
-
-        .questions button:hover {
-            background-color: #37271B;
-        }
-
-        .result-container {
-            flex: 1; /* Takes up available space */
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column; /* Stack child elements vertically */
-            align-items: flex-start; /* Align child elements to the start */
-        }
-
-        .result-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .result-value {
-            font-size: 18px;
-            font-weight: bold;
-            text-align: left;
-        }
-    </style>
-</head>
-<body>
    
-    <div class="container">
+    <div class="container3">
         <div class="questions">
             <label for="category">Select a Category:</label>
             <select id="category" onchange="updateItemTypes()">
