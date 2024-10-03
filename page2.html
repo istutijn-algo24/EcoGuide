@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="page2.css">
+        <title>Waste Disposal Guide</title>
+    </head>
+<body>
+    <div class="container">
+        <div class="camera-section">
+            <br><br>
+            <img src="camera.png" alt="Camera" id="camera-icon">
+            <p></p>
+            <input type="file" id="file-upload" accept="image/*">
+            <label for="file-upload" class="upload-label">Upload File</label>
+        </div>
+        <div class="info-section">
+            <h2>Waste Disposal Information</h2>
+            <p>Waste name: <span id="waste-name">Plastic Bottle</span></p>
+            <p>Type: <span id="waste-type">Non-biodegradable</span></p>
+            <p>Toxicity: <span id="toxicity">Low</span></p>
+            <p>How to dispose of the waste: <span id="disposal-method">Recycle at a designated facility.</span></p>
+            <p>Tip: <br><br> <span class="highlight" id="tip">Always rinse before recycling.</span></p> <!-- Highlighted tip -->
+        </div>
+        
+    </div>
+    <script src="page2.js"></script>
+</body>
+</html>
