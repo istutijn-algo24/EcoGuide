@@ -71,7 +71,7 @@ header {
   align-items: center;
   /* height: 100%; Full height of the section */
   padding: 20px; /* Padding around the quote */
-  background-color: rgb(254, 254, 254);
+  background-color: rgba(0, 134, 60, 1);
 }
 
 .quote-heading {
