@@ -1,0 +1,123 @@
+html,body{
+    font-family: "Afacad", sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+background-image: url("ecosortbg2.png");
+/* background-size: cover; */
+  /* background-position: center; */
+  
+
+}
+
+
+
+.logo img{
+width: 130px;
+}
+
+.header-content {
+display: flex;                   /* Create a flex container */
+justify-content: space-between;  /* Space between logo and navigation */
+align-items: center;             /* Vertically center content */
+}
+header {
+background-color:  rgba(0, 134, 60, 1);  
+padding: 10px 10px;        
+border-bottom-left-radius: 40px; 
+border-bottom-right-radius: 40px; 
+position: relative;
+z-index: 2; /* Ensure header appears above overlay */
+padding: 10px 20px;
+color: white; /* Change color as needed */
+}
+.nav-options {
+display: flex;                  /* Align links in a row */
+margin-left: auto;              /* Pushes the links to the right */
+}
+
+.nav-options a {
+margin-left: 150px;     /* Spacing between the links */
+color: white;          /* Link text color */
+text-decoration: none; /* Remove underline */
+font-size: 20px;      
+/* font-weight: bold;    */
+transition: transform 0.3s ease;
+padding:30px;
+font-family: "Afacad", sans-serif;
+}
+.nav-options a:hover {
+text-decoration: underline; /* Underline when hovered */
+transform: scale(1.1);   
+}
+
+.startingtext{
+    margin-top: 60px;
+   color: rgba(0, 134, 60, 1) ;
+   font-family: "Afacad", sans-serif;
+    text-align: center;
+    font-size: 30px;
+    padding:40px;
+}
+
+
+
+.waste-items{
+justify-content: center;
+    gap: 40px;
+    display:flex;
+    
+}
+
+.waste-item{
+  border-radius: 20px;
+    background-color: rgba(217, 217, 217, 1);
+    padding: 17px;
+    gap: 40px;
+    color: rgb(17, 74, 5);
+    font-family: "Afacad", sans-serif;
+    box-shadow: 0 2px 4px rgba(2, 0, 3, 0.3);
+    cursor: grab;
+    transition: transform 0.2s;
+}
+.waste-item:hover {
+    transform: scale(1.2);
+  }
+/* in css , if i added display: flex and then in the next line display:inline 
+then it will prioritize the last property that is display:inline. */
+
+.waste-bin img{
+width:180px;
+}
+.container{
+display:flex;
+padding:80px;
+justify-content: center;
+gap:50px;
+}
+
+.waste-bin:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+
+
+.bin-label{
+    padding:20px 10px 10px 50px;
+    /* background-color: rgb(79, 136, 136); */
+    font-family: "Afacad", sans-serif;
+    background-color: azure;
+    border-radius: 5px; /* Round the corners of the label */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.result,.score{
+    font-size:40px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  

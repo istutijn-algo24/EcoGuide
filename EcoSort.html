@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSort</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&family=Afacad:ital,wght@0,400..700;1,400..700&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="logo.png">
+    <link rel="stylesheet" href="EcoSort.css">
+</head>
+<body>
+    <div class="background-section">
+    <header>
+        <div class="header-content">
+
+        <span class = 'logo'>
+            <img src="./logo.png" alt="">
+        </span>
+        <nav class="nav-options">
+            <a href="#">EcoSort</a>
+            <a href="#">CarbonCalc</a>
+            <a href="#">Green Tips</a>
+        </nav>
+  
+    </div>
+    </header>
+<div class="startingtext">
+    <h1 style="padding:20px;display: inline; box-shadow: 0 5px 9px rgba(5, 0, 8, 0.5);">EcoSort: Waste Sorting Game</h1>
+    <h3 style="color:rgb(195, 195, 18)">Drag each waste item to the correct waste bin to help manage waste sustainably!</h3>
+</div>
+
+<div class="waste-items">
+    <div class="waste-item" id="item1" data-category="recyclable" draggable="true">Plastic</div>
+    <div class="waste-item" id="item2" data-category="compostable" draggable="true">Apple Peel</div>
+    <div class="waste-item" id="item3" data-category="hazardous" draggable="true">Chemicals</div>
+    <div class="waste-item" id="item4" data-category="e-waste" draggable="true">Battery</div>
+    <div class="waste-item" id="item5" data-category="recyclable" draggable="true">Metal</div>
+    <div class="waste-item" id="item6" data-category="compostable" draggable="true">Banana Peel</div>
+    <div class="waste-item" id="item7" data-category="e-waste" draggable="true">Old Phone</div>
+  </div>
+
+
+  <div class="container">
+    <div class="waste-bin" data-category="recyclable">
+        <img src="dustbin1.png" alt="Recyclable Bin">
+      <div class="bin-label">Recyclable</div>
+    </div>
+    <div class="waste-bin" data-category="compostable">
+        <img src="dustbin2.png" alt="Compostable Bin" height="260px">
+      <div class="bin-label">Compostable</div>
+    </div>
+    <div class="waste-bin" data-category="hazardous">
+        <img src="dustbin3.png" alt="Hazardous Waste Bin" height="260px">
+      <div class="bin-label">Hazardous Waste</div>
+    </div>
+    <div class="waste-bin" data-category="e-waste">
+        <img src="dustbin4.png" alt="E-Waste Bin">
+      <div class="bin-label">E-Waste</div>
+    </div>
+  </div>
+  <div class="score-container">
+    <div class="result" id="result"></div>
+    <div class="score" id="score">Score: 0</div>
+    
+</div>
+
+
+  <script src="script.js"></script>
+
+
+
+
+
+
+
+
+
+
+</div>  
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
