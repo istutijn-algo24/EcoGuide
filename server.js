@@ -6,7 +6,6 @@ const path = require('path');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public')); // Serve static files from the public directory
 
 // Load users from a file
 function loadUsers() {
@@ -22,6 +21,21 @@ function loadUsers() {
 function saveUsers(users) {
     fs.writeFileSync('users.json', JSON.stringify(users, null, 2));
 }
+
+// Serve the main HTML file (index.html)
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html')); // Serve index.html
+});
+
+// Serve the login HTML file (login.html)
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'login.html')); // Serve login.html
+});
+
+// Serve the register HTML file (register.html)
+app.get('/register', (req, res) => {
+    res.sendFile(path.join(__dirname, 'register.html')); // Serve register.html
+});
 
 // Registration route
 app.post('/register', (req, res) => {
