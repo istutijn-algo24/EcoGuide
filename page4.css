@@ -34,13 +34,14 @@ margin-left: auto;              /* Pushes the links to the right */
 }
 
 .nav-options a {
-  margin-left: 150px;     /* Spacing between the links */
-  color: white;          /* Link text color */
-  text-decoration: none; /* Remove underline */
-  font-size: 20px;      
-  font-weight: bold;   
-  transition: transform 0.3s ease;
-
+margin-left: 150px;     /* Spacing between the links */
+color: white;          /* Link text color */
+text-decoration: none; /* Remove underline */
+font-size: 20px;      
+font-weight: bold;   
+transition: transform 0.3s ease;
+padding:30px;
+font-family: "Afacad", sans-serif;
 }
 .nav-options a:hover {
 text-decoration: underline; /* Underline when hovered */
