@@ -9,6 +9,9 @@
 .logo img{
 width: 130px;
 }
+.title{
+    font-color : black;
+}
 
 .header-content {
 display: flex;                   /* Create a flex container */
