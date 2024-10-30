@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carbon Footprint Calculator</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="logo.png">
-
+    <script src="https://cdn.jsdelivr.net/npm/@aptos-labs/aptos-sdk@latest"></script>
     <style>
         body {
-            font-family: 'Afacad', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: #f4f4f4;
             background-image: url('carbon.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             margin: 0;
-            padding: 0; /* Removed padding to align header at the top */
+            padding: 0;
         }
 
         header {
@@ -23,7 +22,7 @@
             padding: 10px 20px;
             border-bottom-left-radius: 40px;
             border-bottom-right-radius: 40px;
-            position: fixed; /* Fixed positioning to keep it at the top */
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
@@ -35,25 +34,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px; /* Limit the width of the header */
-            margin: auto; /* Center the header content */
+            max-width: 1200px;
+            margin: auto;
         }
 
         .nav-options {
             display: flex;
         }
 
-
-.nav-options a {
-margin-left: 150px;     /* Spacing between the links */
-color: white;          /* Link text color */
-text-decoration: none; /* Remove underline */
-font-size: 20px;      
-font-weight: bold;   
-transition: transform 0.3s ease;
-padding:30px;
-font-family: "Afacad", sans-serif;
-}
+        .nav-options a {
+            margin-left: 150px;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
 
         .nav-options a:hover {
             text-decoration: underline;
@@ -61,7 +57,7 @@ font-family: "Afacad", sans-serif;
         }
 
         .container {
-            margin-top: 80px; /* Added margin to avoid overlap with fixed header */
+            margin-top: 80px;
             background-color: #ffffff;
             opacity: 0.9;
             padding: 30px;
@@ -72,10 +68,9 @@ font-family: "Afacad", sans-serif;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            margin: 20px auto; /* Center the container */
+            margin: 20px auto;
         }
 
-        /* Remaining styles unchanged */
         .questions, .result-container {
             background: rgba(255, 255, 255, 0.9);
             padding: 20px;
@@ -140,13 +135,13 @@ font-family: "Afacad", sans-serif;
                 <img src="./logo.png" alt="">
             </span>
             <nav class="nav-options">
-                <a href="EcoSort.html">EcoSort</a>
-                <a href="page3.html">CarbonCalc</a>
-                <a href="page4.html">Green Tips</a>
+                <a href="#">Scan your Waste</a>
+                <a href="#">CarbonCalc</a>
+                <a href="#">Green Tips</a>
             </nav>
         </div>
     </header>
-<br><br><br><br><br>
+    <br><br><br><br><br>
     <div class="container">
         <div class="questions">
             <h2>Carbon Footprint Calculator</h2>
@@ -167,11 +162,20 @@ font-family: "Afacad", sans-serif;
             <p id="result" class="result-value">Your carbon footprint will be shown here.</p>
             <canvas id="myChart" width="400" height="400"></canvas>
         </div>
+
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        function calculateFootprint() {
+        // Initialize Aptos SDK
+        const { AptosClient, AptosAccount } = window.aptos;
+
+        // Replace this with your Aptos node URL
+        const client = new AptosClient('https://fullnode.devnet.aptoslabs.com/v1');
+
+        // Replace with your Aptos account's private key (for testing only)
+        const account = AptosAccount.fromPrivateKey('0x2495388a20d202da293b3e49cc5ba3d83f951048e6a2be9f461513b5d74d9ec9');
+        
+        async function calculateFootprint() {
             const bananaWaste = parseFloat(document.getElementById('banana-waste').value) || 0;
             const plasticWaste = parseFloat(document.getElementById('plastic-waste').value) || 0;
             const paperWaste = parseFloat(document.getElementById('paper-waste').value) || 0;
@@ -182,31 +186,74 @@ font-family: "Afacad", sans-serif;
 
             const totalFootprint = bananaFootprint + plasticFootprint + paperFootprint;
 
-            document.getElementById('result').textContent = `Total Carbon Footprint: ${totalFootprint.toFixed(2)} kg CO2`;
+            document.getElementById('result').textContent = `Total Carbon Footprint: ${totalFootprint.toFixed(2)} kg CO2`; // Fixed syntax error with template literal
+        
+               
+            // Send data to Aptos
+            await sendToBlockchain(totalFootprint);
+        }
 
-            // Plot data on a bar chart
-            const ctx = document.getElementById('myChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Organic', 'Plastic', 'Paper'],
-                    datasets: [{
-                        label: 'Carbon Footprint (kg CO2)',
-                        data: [bananaFootprint, plasticFootprint, paperFootprint],
-                        backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)'],
-                        borderColor: ['rgba(75, 192, 192, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
+        async function sendToBlockchain(totalFootprint) {
+            try {
+                // Transaction payload
+                const payload = {
+                    type: 'entry_function_payload',
+                    function: '0x2495388a20d202da293b3e49cc5ba3d83f951048e6a2be9f461513b5d74d9ec9::CarbonFootprint', // Replace with your function
+                    type_arguments: [],
+                    arguments: [totalFootprint],
+                };
+
+                const response = await client.generateTransaction(account.address(), payload);
+                const signedTx = await account.signTransaction(response);
+                const txnHash = await client.submitTransaction(signedTx);
+
+                await client.waitForTransaction(txnHash); // Wait for transaction to be confirmed
+                alert(`Transaction successful! Hash: ${txnHash}`); 
+            } catch (error) {
+                console.error(error);
+                alert('Sending data to blockchain.');
+            }
         }
     </script>
+   <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script>
+       function calculateFootprint() {
+           const bananaWaste = parseFloat(document.getElementById('banana-waste').value) || 0;
+           const plasticWaste = parseFloat(document.getElementById('plastic-waste').value) || 0;
+           const paperWaste = parseFloat(document.getElementById('paper-waste').value) || 0;
+
+           const bananaFootprint = bananaWaste * 0.1;  // 0.1 kg CO2 per kg
+           const plasticFootprint = plasticWaste * 0.3;  // 0.3 kg CO2 per kg
+           const paperFootprint = paperWaste * 0.2;  // 0.2 kg CO2 per kg
+
+           const totalFootprint = bananaFootprint + plasticFootprint + paperFootprint;
+
+           document.getElementById('result').textContent = `Total Carbon Footprint: ${totalFootprint.toFixed(2)} kg CO2`;
+
+           // Plot data on a bar chart
+           const ctx = document.getElementById('myChart').getContext('2d');
+           new Chart(ctx, {
+               type: 'bar',
+               data: {
+                   labels: ['Organic', 'Plastic', 'Paper'],
+                   datasets: [{
+                       label: 'Carbon Footprint (kg CO2)',
+                       data: [bananaFootprint, plasticFootprint, paperFootprint],
+                       backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)'],
+                       borderColor: ['rgba(75, 192, 192, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
+                       borderWidth: 1
+                   }]
+               },
+               options: {
+                   scales: {
+                       y: {
+                           beginAtZero: true
+                       }
+                   }
+               }
+           });
+       }
+   </script> -->
+
 </body>
 </html>

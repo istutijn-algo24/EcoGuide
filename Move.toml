@@ -1,0 +1,9 @@
+[package]
+name = "CarbonFootprintProject"
+version = "0.0.1"
+
+[dependencies]
+AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework", rev = "main" } 
+
+[addresses]
+CarbonFootprint = "0x2495388a20d202da293b3e49cc5ba3d83f951048e6a2be9f461513b5d74d9ec9"
