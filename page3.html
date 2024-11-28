@@ -169,58 +169,58 @@
 
     </div>
 
-    <script>
+<!--     <script> 
         //here we integrates a Move-based smart contract with a JavaScript/HTML frontend, allowing users to record and store their carbon footprint data on the blockchain.
         // Initialize Aptos SDK
-        const { AptosClient, AptosAccount } = window.aptos;
+    //     const { AptosClient, AptosAccount } = window.aptos;
 
-        // Replace this with your Aptos node URL
-        const client = new AptosClient('https://fullnode.devnet.aptoslabs.com/v1');
+    //     // Replace this with your Aptos node URL
+    //     const client = new AptosClient('https://fullnode.devnet.aptoslabs.com/v1');
 
-        // Replace with your Aptos account's private key (for testing only)
-        const account = AptosAccount.fromPrivateKey('0x2495388a20d202da293b3e49cc5ba3d83f951048e6a2be9f461513b5d74d9ec9');
+    //     // Replace with your Aptos account's private key (for testing only)
+    //     const account = AptosAccount.fromPrivateKey('0x2495388a20d202da293b3e49cc5ba3d83f951048e6a2be9f461513b5d74d9ec9');
         
-        async function calculateFootprint() {
-            const bananaWaste = parseFloat(document.getElementById('banana-waste').value) || 0;
-            const plasticWaste = parseFloat(document.getElementById('plastic-waste').value) || 0;
-            const paperWaste = parseFloat(document.getElementById('paper-waste').value) || 0;
+    //     async function calculateFootprint() {
+    //         const bananaWaste = parseFloat(document.getElementById('banana-waste').value) || 0;
+    //         const plasticWaste = parseFloat(document.getElementById('plastic-waste').value) || 0;
+    //         const paperWaste = parseFloat(document.getElementById('paper-waste').value) || 0;
 
-            const bananaFootprint = bananaWaste * 0.1;  // 0.1 kg CO2 per kg
-            const plasticFootprint = plasticWaste * 0.3;  // 0.3 kg CO2 per kg
-            const paperFootprint = paperWaste * 0.2;  // 0.2 kg CO2 per kg
+    //         const bananaFootprint = bananaWaste * 0.1;  // 0.1 kg CO2 per kg
+    //         const plasticFootprint = plasticWaste * 0.3;  // 0.3 kg CO2 per kg
+    //         const paperFootprint = paperWaste * 0.2;  // 0.2 kg CO2 per kg
 
-            const totalFootprint = bananaFootprint + plasticFootprint + paperFootprint;
+    //         const totalFootprint = bananaFootprint + plasticFootprint + paperFootprint;
 
-            document.getElementById('result').textContent = `Total Carbon Footprint: ${totalFootprint.toFixed(2)} kg CO2`; // Fixed syntax error with template literal
+    //         document.getElementById('result').textContent = `Total Carbon Footprint: ${totalFootprint.toFixed(2)} kg CO2`; // Fixed syntax error with template literal
         
                
-            // Send data to Aptos
-            await sendToBlockchain(totalFootprint);
-        }
+    //         // Send data to Aptos
+    //         await sendToBlockchain(totalFootprint);
+    //     }
 
-        async function sendToBlockchain(totalFootprint) {
-            try {
-                // Transaction payload
-                const payload = {
-                    type: 'entry_function_payload',
-                    function: '0x2495388a20d202da293b3e49cc5ba3d83f951048e6a2be9f461513b5d74d9ec9::CarbonFootprint', // Replace with your function
-                    type_arguments: [],
-                    arguments: [totalFootprint],
-                };
+    //     async function sendToBlockchain(totalFootprint) {
+    //         try {
+    //             // Transaction payload
+    //             const payload = {
+    //                 type: 'entry_function_payload',
+    //                 function: '0x2495388a20d202da293b3e49cc5ba3d83f951048e6a2be9f461513b5d74d9ec9::CarbonFootprint', // Replace with your function
+    //                 type_arguments: [],
+    //                 arguments: [totalFootprint],
+    //             };
 
-                const response = await client.generateTransaction(account.address(), payload);
-                const signedTx = await account.signTransaction(response);
-                const txnHash = await client.submitTransaction(signedTx);
+    //             const response = await client.generateTransaction(account.address(), payload);
+    //             const signedTx = await account.signTransaction(response);
+    //             const txnHash = await client.submitTransaction(signedTx);
 
-                await client.waitForTransaction(txnHash); // Wait for transaction to be confirmed
-                alert(`Transaction successful! Hash: ${txnHash}`); 
-            } catch (error) {
-                console.error(error);
-                alert('Sending data to blockchain.');
-            }
-        }
-    </script>
-   <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    //             await client.waitForTransaction(txnHash); // Wait for transaction to be confirmed
+    //             alert(`Transaction successful! Hash: ${txnHash}`); 
+    //         } catch (error) {
+    //             console.error(error);
+    //             alert('Sending data to blockchain.');
+    //         }
+    //     }
+    // </script> -->
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
    <script>
        function calculateFootprint() {
            const bananaWaste = parseFloat(document.getElementById('banana-waste').value) || 0;
@@ -258,7 +258,7 @@
                }
            });
        }
-   </script> -->
+   </script>
 
 </body>
 </html>
