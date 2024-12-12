@@ -7,6 +7,6 @@ EcoGuide is an interactive platform aimed at promoting environmental sustainabil
 
 
 # Features
-*EcoSort Game: An interactive game where users sort waste into categories like disposable, compostable, and hazardous waste.
-*Carbon Footprint Calculator: A tool for users to calculate their carbon footprint based on energy consumption and travel habits, with results visualized on a bar graph.
-*Green Tips: A section with eco-friendly tips to help users live more sustainably.
+- EcoSort Game: An interactive game where users sort waste into categories like disposable, compostable, and hazardous waste.
+- Carbon Footprint Calculator: A tool for users to calculate their carbon footprint based on energy consumption and travel habits, with results visualized on a bar graph.
+- Green Tips: A section with eco-friendly tips to help users live more sustainably.
