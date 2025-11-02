@@ -14,5 +14,4 @@ EcoGuide is an interactive platform aimed at promoting environmental sustainabil
 
 # Technologies Used
 - Frontend: HTML, CSS, JavaScript, Chart.js
-- Backend: Node.js
-- Hosting: Render
+
